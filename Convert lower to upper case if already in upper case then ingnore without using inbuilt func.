@@ -1,0 +1,20 @@
+--------Time complexity O(n)-------
+
+
+function customToUpperCase(inputString) {
+    let result = '';
+for(let i=0; i<inputString.length; i++){
+    let char=inputString[i];
+    if(char>='a' && char<= 'z'){
+        result+=String.fromCharCode(char.charCodeAt(0)-32);
+    }
+    else{
+        result+=char;
+    }
+}
+return result;
+}
+
+const inputString = 'Hello, World!';
+const uppercaseString = customToUpperCase(inputString);
+console.log(uppercaseString); // Output: "HELLO, WORLD!"
