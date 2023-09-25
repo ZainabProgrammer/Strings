@@ -1,0 +1,44 @@
+-------Time complexity O(1) due to constant input---------
+
+var intToRoman = function(num) {
+    let numerals=["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+    let numbers=[1000,900,500,400,100,90,50,40,10,9,5,4,1];
+
+     let total="";
+for(let i=0; i<numbers.length; i++){
+   
+while(num>=numbers[i]){
+    total+=numerals[i];
+    num-=numbers[i];
+}
+
+
+}
+return total;
+}
+
+Target:    1994
+Output:   "MCMXCIV"
+
+Approach:
+
+we took two arrays of numbers where we stored all numbers from 1000 to 1 and 
+another array stores numerals of them according to indexes of numbers
+we loop through the numbers array untill its length
+and  then enter into a while loop  and check if it is less than or equal to num which is target number
+if that is the condition then 
+append  numerals[i] which is corresponding to number array indexes 
+and also we remove number[i] or current number from  num which is target why?  :
+first let target is 1994
+initially numbers[i] is 1000 enter into while loop and append the "M" to target string and remove that current i.e. 1000 from target num i.e. 1994 so,
+                  1994-1000=994
+again second element from numbers array is less than 900 so again append "CM" to total
+
+and again         994-900=94
+so, 90 is again less than or equal to num so, again append "XC" to total
+
+now again         94-90=4
+
+now 4 is equal to 4 then append "IV" to total and minus as well from the num giving 0 and finish the loop.
+
+
