@@ -1,0 +1,37 @@
+--------Time complexity O(n)-------
+
+let romanToInt = function(s) {
+       const romanNumerals = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+    
+    let total = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        const current = romanNumerals[s[i]];
+        const next = romanNumerals[s[i + 1]];
+        
+        if (next && current < next) {
+            total -= current;
+        } else {
+            total += current;
+        }
+    }
+    
+    return total;
+}
+
+Approach:
+we stored all the specified numbers against the roman numerals in to an object.
+Then intiated total with 0;
+then run for loop which runs from 0 to length of string.
+Initialized current with s[i] and next with s[i+1]
+then checked the condition if the next is present and current is smaller then next :
+suppose IV where I represents 1 and V represents 5 mean if current is smaller then next we subtract the current from the total 
+else we simply add the current to total and return total.
