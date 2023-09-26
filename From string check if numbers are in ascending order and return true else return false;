@@ -1,0 +1,22 @@
+
+
+var areNumbersAscending = function(s) {
+  
+  let num= s.match(/\d+/g);
+let numbers = num.map(Number);
+
+for(let i=1; i<=numbers.length; i++){
+if(numbers[i]<=numbers[i-1]){
+return false;
+}
+
+}
+return true;
+};
+
+
+Approach:
+
+At first draw out numbers from string using regex \d+ which represents only numbers. and stored in numbers array.
+then iterate through array and find if current element is greater than equal to its previous then return false; 
+and else true;
