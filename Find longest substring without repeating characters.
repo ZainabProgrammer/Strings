@@ -1,0 +1,29 @@
+
+
+var lengthOfLongestSubstring = function(s) {
+  
+  let count=0;
+  let i=0;
+  let j=0;
+  let max=0;
+  let set=new Set();
+ while(j<s.length){
+      if(!set.has(s[j])){
+          set.add(s[j]);
+          count++;
+          j++;
+          max=Math.max(max,j-i)
+      }else{
+          set.delete(s[i]);
+          i++;
+      }
+  }      
+          
+     return max;   
+    
+};
+
+Approach:
+
+i is set to be the first position at set where elements add up and if next element is equal to the prev element then that element is 
+removed which is placed at i and i is moved on .
