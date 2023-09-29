@@ -1,0 +1,49 @@
+------Time complexity O(log10k)------
+
+function reverse(x: number): number {
+  const INT_MAX = Math.pow(2, 31) - 1; // maximum 32-bit signed integer value
+  const INT_MIN = -Math.pow(2, 31); // minimum 32-bit signed integer value
+
+  // handle negative numbers
+  // for negative number take the absolute value of x.
+  let isNegative = false;
+  if (x < 0) {
+    x = Math.abs(x);
+    isNegative = true;
+  }
+
+  // to store the reversed integer.
+  let reversed = 0;
+
+  // to ensure we process all digits of the input integer
+  while (x > 0) {
+    // extracts the last digit of the current value of `x`
+    //  if x is 123, this would set digit to 3.
+    const digit = x % 10;
+
+    // updates the reversed integer by multiplying the current value of reversed by 10
+    // shifting it one place to the left in decimal representation
+    // and then adding the current digit
+    reversed = reversed * 10 + digit;
+
+    // updates x to the value obtained by removing the last digit
+    //  if x was 123, this would update x to 12,
+    // allowing us to process the next digit in the next iteration of the loop.
+    x = Math.floor(x / 10);
+  }
+
+  // check overflow
+  // if exceed the maximum allowed value
+  // or minimum value return 0
+  if (reversed > INT_MAX || reversed < INT_MIN) {
+    return 0;
+  }
+
+  // if the input was initially negative,
+  // we adjust the sign of the reversed integer accordingly.
+  if (isNegative === true) {
+    reversed = reversed * -1;
+  }
+
+  return reversed;
+}
