@@ -1,0 +1,28 @@
+--------Time complexity O(1)-----------
+
+function squares(a, b) {
+    // Function to count perfect squares less than or equal to x
+    const countPerfectSquares = (x) => Math.floor(Math.sqrt(x));
+
+    // Count perfect squares up to b and subtract those up to a - 1
+    const countB = countPerfectSquares(b);
+    const countAminus1 = countPerfectSquares(a - 1);
+
+    return countB - countAminus1;
+}
+
+
+
+
+Approach:
+we built a general function to find the square roots up to a given number;
+first we provide b and it calculated all perfect squares upto b 
+then we provide a-1 which calculated all perfect squares upto a-1;
+but we need from range of a to b
+so, 
+we subtracted squares roots of a-1 from b to get only from a to b.
+----------consider upper bound to be 24 and upper bound to be 49----------
+till 24 all the perfect squares include 4,9,16 
+while all perfect squares till 49 include 4,9,16,25,36,49
+so, in order to get perfect squares in range i.e. from 24 to 49 we will disclude all the perfect squares till 23 
+and remaining portion will include in our result and count is returned.
