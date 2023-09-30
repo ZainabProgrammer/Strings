@@ -1,0 +1,26 @@
+
+
+function saveThePrisoner(n, m, s) {
+    // Write your code here
+ const remainder = (m - 1) % n;
+  // Calculate the position of the last prisoner to receive a candy
+    let lastPrisoner = (s - 1 + remainder) % n;
+
+    // Add 1 to convert from 0-based indexing to 1-based indexing
+    lastPrisoner = (lastPrisoner + 1);
+
+    return lastPrisoner;
+}
+
+-----Sample expample-------
+
+n=4
+m=6
+s=2
+
+there are n=4 prisoners in which we have to distribute m=6 candies which are seated on 4 chairs if we start distributing from chair s=2 then who will get the awful candy:
+
+dry run:
+remainder=6-1=5 .... 5%4 .....1
+lasteprisoner=6-1=5+1 6%4........1
+now add 1 to lastprisoner......1+1 ==2 our answer;
