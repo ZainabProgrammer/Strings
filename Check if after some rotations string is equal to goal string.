@@ -1,0 +1,35 @@
+
+
+var rotateString = function(s, goal) {
+    if (s.length !== goal.length) {
+        return false; // If the lengths are different, s can't be a rotation of goal
+    }
+    const doubleS = s + s;
+
+    if (doubleS.includes(goal)) {
+        return true;
+    }
+
+    return false;
+
+};
+
+Approach:
+
+we string with itself then check if it includes the goal string or not with help of includes function.
+
+------Sample example:
+
+s=abcde
+goal=cdeab
+s+s=abcdecdeab
+then clearly s+s includes the goal which means if we perform some rotations then it would be similar to gaol.
+
+---------cosider another example:
+
+Input: s = "abcde", goal = "abced"
+Output: false
+because order of abced is not perserved when you perform rotations see,s:
+rot#1:      rot#2:    rot#3    rot#4     rot#5
+eabcd       deabc     cdeab    bcdea     abcde
+s+s=abcdeabcde which clearly not including the goal.
